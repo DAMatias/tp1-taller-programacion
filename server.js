@@ -3,12 +3,12 @@ const fs = require('fs');
 const path = require('path');
 
 let conceptos = [];
+let nextId = 1;
 const PORT = 3000;
 
 const server = http.createServer((req, res) => {    
     console.log(`Petición recibida: ${req.method} ${req.url}`);
     
-    // Ruta raíz (GET /)
     if (req.url === '/' && req.method === 'GET') {
         const filePath = path.join(__dirname, 'public', 'index.html');
         fs.readFile(filePath, (err, content) => {
