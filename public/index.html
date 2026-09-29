@@ -3,13 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conceptos - TP1</title>
+    <title>Gestor de Conceptos - TP1</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>¡Hola desde el Frontend!</h1>
-    <p>Funciona correctamente!.</p>
+
+    <header>
+        <h1>Manejando el Backend</h1>
+        <p>Taller de Programación 2</p>
+    </header>
     
+    <main>
+        <section class="formulario">
+            <h2>Agregar Nuevo Concepto</h2>
+            <form id="conceptoForm">
+                <label for="nombre">Nombre del concepto:</label>
+                <input type="text" id="nombre" placeholder="Ej: HTTP, Node.js..." required>
+                
+                <label for="descripcion">Desarrollo/Descripción:</label>
+                <textarea id="descripcion" rows="4" placeholder="Escribí aquí la definición..." required></textarea>
+                
+                <button type="submit">Guardar Concepto</button>
+            </form>
+            <button id="btnEliminarTodos" class="btn-peligro">Eliminar Todos los Conceptos</button>
+        </section>
+
+        <section class="listado">
+            <h2>Conceptos Guardados</h2>
+            <ul id="listaConceptos"></ul>
+        </section>
+    </main>
+
     <script src="app.js"></script>
 </body>
 </html>
