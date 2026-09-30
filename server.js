@@ -1,11 +1,28 @@
 const http = require('http');
 const fs = require('fs');
 const url = require('url');
+const mysql = require('mysql2');
 
-// Base de datos en memoria
-let conceptos = [];
+//let conceptos = [];
 let nextId = 1;
 const PORT = 3000;
+
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'Gallina132.',
+    database: 'tp_taller'
+});
+
+connection.connect((err) => {
+    if(err) {
+        console.error('Error conectando a la base de datos: ', err);
+        return;
+    }
+    console.log('Conexión exitosa a la base de datos.');
+});
+
+connection.end();
 
 const server = http.createServer((req, res) => {
     const parsedUrl = url.parse(req.url, true);
